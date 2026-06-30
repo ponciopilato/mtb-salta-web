@@ -66,7 +66,7 @@ if (contactForm) {
         btn.disabled = true;
         
         // Enviar email con EmailJS
-        emailjs.sendForm('service_fpblz4d', 'template_rxwma9n', this)
+        emailjs.sendForm('service_fpblz4d', 'template_93n639y', this)
             .then((response) => {
                 console.log('Email enviado exitosamente!', response.status, response.text);
                 
