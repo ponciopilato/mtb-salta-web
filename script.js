@@ -51,7 +51,9 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// WhatsApp Form Handler
+// WhatsApp Form Handler - DESACTIVADO para usar Formspree
+// El formulario ahora envía emails directamente vía formspree.io
+/*
 const contactForm = document.getElementById('contactForm');
 
 if (contactForm) {
@@ -66,12 +68,12 @@ if (contactForm) {
         const mensaje = document.getElementById('mensaje').value.trim();
         
         // Build WhatsApp message
-        const texto = `🚵‍♂️ *Nuevo mensaje desde MTB Salta*\n\n` +
-            `*Nombre:* ${nombre}\n` +
-            `*Email:* ${email}\n` +
-            `*Teléfono:* ${telefono || 'No especificado'}\n` +
-            `*Sendero de interés:* ${sendero || 'No especificado'}\n\n` +
-            `*Mensaje:*\n${mensaje}`;
+        const texto = `🚵‍♂️ *Nuevo mensaje desde MTB Salta*\\n\\n` +
+            `*Nombre:* ${nombre}\\n` +
+            `*Email:* ${email}\\n` +
+            `*Teléfono:* ${telefono || 'No especificado'}\\n` +
+            `*Sendero de interés:* ${sendero || 'No especificado'}\\n\\n` +
+            `*Mensaje:*\\n${mensaje}`;
         
         // Encode for URL
         const mensajeEncoded = encodeURIComponent(texto);
@@ -84,7 +86,7 @@ if (contactForm) {
         
         if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
             // Popup blocked - show fallback
-            alert('El navegador bloqueó la ventana emergente. Hacé clic en ACEPTAR para abrir WhatsApp manualmente.\n\nO copiá este link:\n' + whatsappUrl);
+            alert('El navegador bloqueó la ventana emergente. Hacé clic en ACEPTAR para abrir WhatsApp manualmente.\\n\\nO copiá este link:\\n' + whatsappUrl);
             window.location.href = whatsappUrl;
         }
         
@@ -94,6 +96,7 @@ if (contactForm) {
         }, 500);
     });
 }
+*/
 
 // Initialize Interactive Map with Leaflet
 function initMap() {
