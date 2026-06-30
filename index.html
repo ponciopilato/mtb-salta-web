@@ -422,7 +422,7 @@
                         <i class="fas fa-envelope"></i>
                         <div>
                             <h4>Email</h4>
-                            <p>info@mtbsalta.com</p>
+                            <p>ponciopilato19800@gmail.com</p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -441,18 +441,18 @@
                     </div>
                 </div>
                 
-                <form class="contact-form" id="contactForm">
+                <form class="contact-form" id="contactForm" action="https://formspree.io/f/ponciopilato19800" method="POST">
                     <div class="form-group">
-                        <input type="text" id="nombre" placeholder="Tu nombre" required>
+                        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
                     </div>
                     <div class="form-group">
-                        <input type="email" id="email" placeholder="Tu email" required>
+                        <input type="email" id="email" name="email" placeholder="Tu email" required>
                     </div>
                     <div class="form-group">
-                        <input type="tel" id="telefono" placeholder="Tu teléfono">
+                        <input type="tel" id="telefono" name="telefono" placeholder="Tu teléfono">
                     </div>
                     <div class="form-group">
-                        <select id="sendero">
+                        <select id="sendero" name="sendero">
                             <option value="">Seleccioná un sendero</option>
                             <option value="Cerro San Bernardo">Cerro San Bernardo</option>
                             <option value="Valle de Lerma">Valle de Lerma</option>
@@ -463,10 +463,10 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <textarea id="mensaje" placeholder="Tu mensaje" rows="4" required></textarea>
+                        <textarea id="mensaje" name="mensaje" placeholder="Tu mensaje" rows="4" required></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">
-                        <i class="fab fa-whatsapp"></i> Enviar por WhatsApp
+                        <i class="fas fa-paper-plane"></i> Enviar Mensaje
                     </button>
                 </form>
             </div>
