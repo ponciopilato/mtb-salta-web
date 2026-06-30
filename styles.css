@@ -183,13 +183,16 @@ h1, h2, h3, h4 {
 }
 
 .hero-logo {
-    width: 180px;
-    height: 180px;
+    width: 220px;
+    height: 220px;
     margin: 0 auto 1.5rem;
     display: block;
     border-radius: 50%;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
     animation: zoomIn 1s ease;
+    object-fit: contain;
+    background: rgba(255, 255, 255, 0.1);
+    border: 3px solid rgba(255, 255, 255, 0.3);
 }
 
 .hero-subtitle {
@@ -929,8 +932,8 @@ h1, h2, h3, h4 {
     }
 
     .hero-logo {
-        width: 140px;
-        height: 140px;
+        width: 160px;
+        height: 160px;
     }
 
     .hero-subtitle {
