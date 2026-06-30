@@ -189,12 +189,12 @@ h1, h2, h3, h4 {
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
     animation: zoomIn 1s ease;
     object-fit: cover;
-    object-position: 35% center;
+    object-position: center;
 }
 
 .hero-logo-container {
-    width: 220px;
-    height: 220px;
+    width: 440px;
+    height: 440px;
     margin: 0 auto 1.5rem;
     display: block;
     border-radius: 50%;
@@ -942,8 +942,8 @@ h1, h2, h3, h4 {
     }
 
     .hero-logo-container {
-        width: 160px;
-        height: 160px;
+        width: 320px;
+        height: 320px;
         padding: 10px;
     }
 
