@@ -64,7 +64,7 @@ if (contactForm) {
         btn.disabled = true;
         
         // Enviar email con EmailJS
-        emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+        emailjs.sendForm('service_fpblz4d', 'template_rxwma9n', this)
             .then(function() {
                 // Éxito
                 btn.innerHTML = '<i class="fas fa-check"></i> ¡Enviado!';
