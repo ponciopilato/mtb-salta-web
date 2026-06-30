@@ -1,0 +1,963 @@
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Colores tierra/naturaleza - MTB agresivo */
+    --primary-color: #8B4513;  /* Saddle Brown - tierra */
+    --secondary-color: #A0522D; /* Sienna - arcilla */
+    --accent-green: #6B8E23;   /* Olive Drab - vegetación */
+    --accent-orange: #D2691E;  /* Chocolate - rocas */
+    --accent-yellow: #DAA520;  /* Goldenrod - sol */
+    --accent-red: #8B0000;     /* Dark Red - extremo */
+    --dark: #2C1810;           /* Café muy oscuro */
+    --light: #F5DEB3;          /* Wheat - arena clara */
+    --gray: #8B7355;           /* Burlywood - tierra seca */
+    --sky-blue: #87CEEB;       /* Sky blue - cielo */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    color: var(--dark);
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(44, 24, 16, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    border-bottom: 3px solid #8B4513;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 20px;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 900;
+    font-size: 1.8rem;
+    color: #DAA520;  /* Goldenrod - más agresivo */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.nav-brand i {
+    font-size: 1.8rem;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #F5DEB3;  /* Wheat - claro para contraste */
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.nav-menu a:hover {
+    color: #DAA520;  /* Goldenrod */
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #DAA520, #8B4513);
+    transition: width 0.3s ease;
+}
+
+.nav-menu a:hover::after {
+    width: 100%;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: var(--dark);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><defs><linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%238B4513;stop-opacity:1" /><stop offset="50%" style="stop-color:%23A0522D;stop-opacity:1" /><stop offset="100%" style="stop-color:%236B8E23;stop-opacity:1" /></linearGradient></defs><rect fill="url(%23grad)" width="1920" height="1080"/></svg>') center/cover;
+    overflow: hidden;
+    background-attachment: fixed;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(139, 69, 19, 0.85) 0%, rgba(160, 82, 45, 0.85) 50%, rgba(107, 142, 35, 0.85) 100%);
+    backdrop-filter: blur(3px);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    padding: 0 20px;
+}
+
+.hero-title {
+    font-size: 4rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 1s ease;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+    animation: fadeInUp 1s ease 0.2s backwards;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeInUp 1s ease 0.4s backwards;
+}
+
+.btn {
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    transition: all 0.3s ease;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #DAA520 0%, #B8860B 100%);  /* Oro oscuro */
+    color: #2C1810;
+    font-weight: 700;
+    box-shadow: 0 4px 15px rgba(218, 165, 32, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(218, 165, 32, 0.6);
+    background: linear-gradient(135deg, #FFD700 0%, #DAA520 100%);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: #F5DEB3;
+    border: 3px solid #DAA520;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.btn-secondary:hover {
+    background: linear-gradient(135deg, #DAA520 0%, #B8860B 100%);
+    color: #2C1810;
+    border-color: #DAA520;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 2rem;
+    animation: bounce 2s infinite;
+    z-index: 2;
+}
+
+/* Stats Section */
+.stats {
+    background: linear-gradient(135deg, #2C1810 0%, #5D4037 100%);  /* Café oscuro a marrón */
+    padding: 4rem 0;
+    border-top: 2px solid #8B4513;
+    border-bottom: 2px solid #8B4513;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 3.5rem;
+    font-weight: 900;
+    font-family: 'Bebas Neue', sans-serif;
+    background: linear-gradient(135deg, #DAA520 0%, #FFD700 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+    letter-spacing: 2px;
+}
+
+.stat-label {
+    color: #F5DEB3;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Section Styles */
+.section-title {
+    font-size: 3.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    font-family: 'Bebas Neue', sans-serif;
+    background: linear-gradient(135deg, #8B4513 0%, #A0522D 50%, #6B8E23 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #8B7355;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.3rem;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Trails Section */
+.trails {
+    padding: 6rem 0;
+    background: 
+        linear-gradient(180deg, rgba(245, 222, 179, 0.92) 0%, rgba(230, 201, 155, 0.92) 100%),
+        url('assets/tire-tracks.svg');
+    background-size: cover, 400px 400px;
+    background-position: center, 0 0;
+    background-attachment: fixed, scroll;
+}
+
+/* Map Container */
+.map-container {
+    margin: 3rem 0;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    position: relative;
+}
+
+#trailsMap {
+    height: 500px;
+    width: 100%;
+    z-index: 1;
+}
+
+.map-info {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    z-index: 1000;
+    font-weight: 600;
+    color: var(--dark);
+}
+
+.map-info i {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+}
+
+.trails-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.trail-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.trail-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.trail-card.featured {
+    grid-column: span 2;
+}
+
+.trail-image {
+    height: 250px;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+}
+
+.trail-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #8B0000 0%, #A52A2A 100%);  /* Rojo oscuro agresivo */
+    color: #FFD700;
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 15px rgba(139, 0, 0, 0.5);
+    border: 2px solid #FFD700;
+}
+
+.trail-content {
+    padding: 2rem;
+}
+
+.trail-content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--dark);
+}
+
+.trail-info {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.trail-info span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--gray);
+    font-size: 0.95rem;
+}
+
+.trail-info i {
+    color: var(--primary-color);
+}
+
+.trail-difficulty {
+    margin-bottom: 1rem;
+}
+
+.difficulty-badge {
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: white;
+    display: inline-block;
+}
+
+.difficulty-badge.beginner {
+    background: var(--accent-green);
+}
+
+.difficulty-badge.intermediate {
+    background: var(--accent-blue);
+}
+
+.difficulty-badge.advanced {
+    background: var(--accent-orange);
+}
+
+.difficulty-badge.expert {
+    background: var(--accent-red);
+}
+
+.trail-description {
+    color: var(--gray);
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+}
+
+.trail-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.trail-features span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--dark);
+    font-size: 0.9rem;
+    background: var(--light);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+}
+
+.trail-features i {
+    color: var(--accent-green);
+}
+
+/* Difficulty Section */
+.difficulty {
+    padding: 6rem 0;
+    background: 
+        linear-gradient(135deg, rgba(245, 222, 179, 0.88) 0%, rgba(230, 201, 155, 0.88) 100%),
+        url('assets/tire-tracks.svg');
+    background-size: cover, 400px 400px;
+    background-position: center, 0 0;
+}
+
+.difficulty-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.difficulty-card {
+    padding: 2rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 3px solid transparent;
+}
+
+.difficulty-card:hover {
+    transform: translateY(-5px);
+}
+
+.difficulty-card.beginner {
+    border-color: var(--accent-green);
+}
+
+.difficulty-card.intermediate {
+    border-color: var(--accent-blue);
+}
+
+.difficulty-card.advanced {
+    border-color: var(--accent-orange);
+}
+
+.difficulty-card.expert {
+    border-color: var(--accent-red);
+}
+
+.difficulty-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.difficulty-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.difficulty-color {
+    height: 4px;
+    border-radius: 2px;
+    margin: 1.5rem auto;
+    width: 50px;
+}
+
+.difficulty-card ul {
+    list-style: none;
+    text-align: left;
+}
+
+.difficulty-card li {
+    padding: 0.5rem 0;
+    color: var(--gray);
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.difficulty-card li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--accent-green);
+    font-weight: 700;
+}
+
+/* Gallery Section */
+.gallery {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, #2C1810 0%, #5D4037 100%);
+    border-top: 2px solid #8B4513;
+    border-bottom: 2px solid #8B4513;
+}
+
+.gallery .section-title {
+    background: linear-gradient(135deg, #DAA520 0%, #FFD700 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.gallery .section-subtitle {
+    color: #F5DEB3;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.gallery-item {
+    height: 250px;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+}
+
+.gallery-item.large {
+    grid-row: span 2;
+    height: 515px;
+}
+
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-overlay i {
+    color: white;
+    font-size: 1.5rem;
+}
+
+.gallery-overlay span {
+    color: white;
+    font-weight: 600;
+}
+
+/* Tips Section */
+.tips {
+    padding: 6rem 0;
+    background: 
+        linear-gradient(180deg, rgba(230, 201, 155, 0.9) 0%, rgba(210, 180, 140, 0.9) 100%),
+        url('assets/tire-tracks.svg');
+    background-size: cover, 400px 400px;
+    background-position: center, 0 0;
+}
+
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.tip-card {
+    background: linear-gradient(135deg, #F5DEB3 0%, #DEB887 100%);
+    padding: 2rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(44, 24, 16, 0.2);
+    transition: all 0.3s ease;
+    border: 2px solid #8B7355;
+}
+
+.tip-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(44, 24, 16, 0.3);
+    background: linear-gradient(135deg, #DEB887 0%, #D2B48C 100%);
+}
+
+.tip-icon {
+    font-size: 2.5rem;
+    color: #8B4513;
+    margin-bottom: 1.5rem;
+}
+
+.tip-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-family: 'Bebas Neue', sans-serif;
+    color: #2C1810;
+    letter-spacing: 1px;
+}
+
+.tip-card p {
+    color: #5D4037;
+    line-height: 1.7;
+    font-family: 'Oswald', sans-serif;
+}
+
+/* Contact Section */
+.contact {
+    padding: 6rem 0;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.contact-item i {
+    font-size: 2rem;
+    color: var(--primary-color);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--light);
+    border-radius: 50%;
+}
+
+.contact-item h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+}
+
+.contact-item p {
+    color: var(--gray);
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-link {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    font-size: 1.3rem;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+}
+
+.contact-form {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid var(--light);
+    border-radius: 10px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.btn-block {
+    width: 100%;
+}
+
+/* Footer */
+.footer {
+    background: linear-gradient(135deg, #2C1810 0%, #5D4037 100%);
+    color: #F5DEB3;
+    padding: 3rem 0 1.5rem;
+    border-top: 3px solid #8B4513;
+}
+
+.footer-content {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 900;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #DAA520;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(245, 222, 179, 0.2);
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0) translateX(-50%);
+    }
+    40% {
+        transform: translateY(-10px) translateX(-50%);
+    }
+    60% {
+        transform: translateY(-5px) translateX(-50%);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background: white;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        padding: 2rem 0;
+        gap: 0;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-menu li {
+        margin: 1.5rem 0;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .trails-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .trail-card.featured {
+        grid-column: span 1;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    #trailsMap {
+        height: 400px;
+    }
+    
+    .map-info {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+        left: 20px;
+        transform: none;
+        right: 20px;
+        width: calc(100% - 40px);
+    }
+}
+
+@media (max-width: 640px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .difficulty-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-item.large {
+        grid-row: span 1;
+        height: 250px;
+    }
+
+    .tips-grid {
+        grid-template-columns: 1fr;
+    }
+}

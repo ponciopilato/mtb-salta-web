@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTB Salta - Senderos de Mountain Bike en Salta, Argentina</title>
+    <meta name="description" content="Descubrí los mejores senderos para mountain bike en Salta, Argentina. Rutas épicas entre montañas, valles y paisajes increíbles.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Leaflet CSS for interactive map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-bicycle"></i>
+                <span>MTB Salta</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#senderos">Senderos</a></li>
+                <li><a href="#dificultad">Dificultad</a></li>
+                <li><a href="#galeria">Galería</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Explorá Salta en Bici</h1>
+            <p class="hero-subtitle">Senderos épicos de mountain bike en los paisajes más impresionantes de Argentina</p>
+            <div class="hero-buttons">
+                <a href="#senderos" class="btn btn-primary">Ver Senderos</a>
+                <a href="#contacto" class="btn btn-secondary">Contactar</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Senderos</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">200km</div>
+                    <div class="stat-label">Recorridos</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">3500m</div>
+                    <div class="stat-label">Altura máx</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">Todo el año</div>
+                    <div class="stat-label">Temporada</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Senderos Section -->
+    <section id="senderos" class="trails">
+        <div class="container">
+            <h2 class="section-title">Senderos Destacados</h2>
+            <p class="section-subtitle">Descubrí las mejores rutas para MTB en Salta</p>
+            
+            <!-- Interactive Map -->
+            <div class="map-container">
+                <div id="trailsMap"></div>
+                <div class="map-info">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <span>Hacé clic en los marcadores para ver detalles del sendero</span>
+                </div>
+            </div>
+            
+            <div class="trails-grid">
+                <!-- Trail Card 1 -->
+                <div class="trail-card featured">
+                    <div class="trail-image" style="background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);">
+                        <div class="trail-badge">Más Popular</div>
+                    </div>
+                    <div class="trail-content">
+                        <h3>Cerro San Bernardo</h3>
+                        <div class="trail-info">
+                            <span class="trail-distance"><i class="fas fa-bicycle"></i> 12 km</span>
+                            <span class="trail-elevation"><i class="fas fa-arrow-up"></i> 450m</span>
+                            <span class="trail-time"><i class="fas fa-stopwatch"></i> 2-3 hs</span>
+                        </div>
+                        <div class="trail-difficulty">
+                            <span class="difficulty-badge intermediate">Intermedio</span>
+                        </div>
+                        <p class="trail-description">
+                            El clásico de Salta. Subida desafiante con vistas panorámicas increíbles de la ciudad y los valles. 
+                            Sendero técnico con piedras sueltas y curvas cerradas.
+                        </p>
+                        <div class="trail-features">
+                            <span><i class="fas fa-check"></i> Vistas 360°</span>
+                            <span><i class="fas fa-check"></i> Técnico</span>
+                            <span><i class="fas fa-check"></i> Accesible desde ciudad</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trail Card 2 -->
+                <div class="trail-card">
+                    <div class="trail-image" style="background: linear-gradient(135deg, #6B8E23 0%, #556B2F 100%);">
+                    </div>
+                    <div class="trail-content">
+                        <h3>Valle de Lerma</h3>
+                        <div class="trail-info">
+                            <span class="trail-distance"><i class="fas fa-bicycle"></i> 25 km</span>
+                            <span class="trail-elevation"><i class="fas fa-mountain"></i> 600m</span>
+                            <span class="trail-time"><i class="fas fa-stopwatch"></i> 4-5 hs</span>
+                        </div>
+                        <div class="trail-difficulty">
+                            <span class="difficulty-badge advanced">Avanzado</span>
+                        </div>
+                        <p class="trail-description">
+                            Recorrido extenso por el valle con cambios de ritmo constantes. Terreno variado con 
+                            sectores de arena, piedras y tierra compacta. Ideal para resistencia.
+                        </p>
+                        <div class="trail-features">
+                            <span><i class="fas fa-check"></i> Larga distancia</span>
+                            <span><i class="fas fa-check"></i> Terreno variado</span>
+                            <span><i class="fas fa-check"></i> Paisajes abiertos</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trail Card 3 -->
+                <div class="trail-card">
+                    <div class="trail-image" style="background: linear-gradient(135deg, #2E8B57 0%, #3CB371 100%);">
+                    </div>
+                    <div class="trail-content">
+                        <h3>Quebrada de San Lorenzo</h3>
+                        <div class="trail-info">
+                            <span class="trail-distance"><i class="fas fa-bicycle"></i> 18 km</span>
+                            <span class="trail-elevation"><i class="fas fa-mountain"></i> 800m</span>
+                            <span class="trail-time"><i class="fas fa-stopwatch"></i> 3-4 hs</span>
+                        </div>
+                        <div class="trail-difficulty">
+                            <span class="difficulty-badge advanced">Avanzado</span>
+                        </div>
+                        <p class="trail-description">
+                            Sendero en la selva de yunga con vegetación densa y humedad. Descenso técnico 
+                            con raíces, piedras y sectores estrechos. Experiencia única.
+                        </p>
+                        <div class="trail-features">
+                            <span><i class="fas fa-check"></i> Selva de yunga</span>
+                            <span><i class="fas fa-check"></i> Muy técnico</span>
+                            <span><i class="fas fa-check"></i> Biodiversidad</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trail Card 4 -->
+                <div class="trail-card">
+                    <div class="trail-image" style="background: linear-gradient(135deg, #D2691E 0%, #CD853F 100%);">
+                    </div>
+                    <div class="trail-content">
+                        <h3>Campo de Marte</h3>
+                        <div class="trail-info">
+                            <span class="trail-distance"><i class="fas fa-bicycle"></i> 8 km</span>
+                            <span class="trail-elevation"><i class="fas fa-mountain"></i> 200m</span>
+                            <span class="trail-time"><i class="fas fa-stopwatch"></i> 1-2 hs</span>
+                        </div>
+                        <div class="trail-difficulty">
+                            <span class="difficulty-badge beginner">Principiante</span>
+                        </div>
+                        <p class="trail-description">
+                            Perfecto para comenzar. Sendero suave con subidas graduales y descensos controlados. 
+                            Ideal para familias y riders que se inician en MTB.
+                        </p>
+                        <div class="trail-features">
+                            <span><i class="fas fa-check"></i> Fácil acceso</span>
+                            <span><i class="fas fa-check"></i> Familiar</span>
+                            <span><i class="fas fa-check"></i> Poco técnico</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trail Card 5 -->
+                <div class="trail-card">
+                    <div class="trail-image" style="background: linear-gradient(135deg, #8B7355 0%, #A0826D 100%);">
+                    </div>
+                    <div class="trail-content">
+                        <h3>Cerro Castañal</h3>
+                        <div class="trail-info">
+                            <span class="trail-distance"><i class="fas fa-bicycle"></i> 15 km</span>
+                            <span class="trail-elevation"><i class="fas fa-mountain"></i> 550m</span>
+                            <span class="trail-time"><i class="fas fa-stopwatch"></i> 2-3 hs</span>
+                        </div>
+                        <div class="trail-difficulty">
+                            <span class="difficulty-badge intermediate">Intermedio</span>
+                        </div>
+                        <p class="trail-description">
+                            Sendero con mix de subida constante y secciones planas para recuperar. 
+                            Vistas espectaculares del valle y la ciudad desde la cima.
+                        </p>
+                        <div class="trail-features">
+                            <span><i class="fas fa-check"></i> Vistas panorámicas</span>
+                            <span><i class="fas fa-check"></i> Subida constante</span>
+                            <span><i class="fas fa-check"></i> Punto foto</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trail Card 6 -->
+                <div class="trail-card">
+                    <div class="trail-image" style="background: linear-gradient(135deg, #8B0000 0%, #A52A2A 100%);">
+                    </div>
+                    <div class="trail-content">
+                        <h3>Quebrada del Chachapoyas</h3>
+                        <div class="trail-info">
+                            <span class="trail-distance"><i class="fas fa-bicycle"></i> 30 km</span>
+                            <span class="trail-elevation"><i class="fas fa-mountain"></i> 900m</span>
+                            <span class="trail-time"><i class="fas fa-stopwatch"></i> 5-6 hs</span>
+                        </div>
+                        <div class="trail-difficulty">
+                            <span class="difficulty-badge expert">Experto</span>
+                        </div>
+                        <p class="trail-description">
+                            La ruta más exigente. Territorio remoto con navegación compleja, 
+                            escaladas pronunciadas y descenso extremo. Solo para experimentados.
+                        </p>
+                        <div class="trail-features">
+                            <span><i class="fas fa-check"></i> Extremo</span>
+                            <span><i class="fas fa-check"></i> Remoto</span>
+                            <span><i class="fas fa-check"></i> Multi-horas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dificultad Section -->
+    <section id="dificultad" class="difficulty">
+        <div class="container">
+            <h2 class="section-title">Niveles de Dificultad</h2>
+            <p class="section-subtitle">Conocé el sistema de clasificación de senderos</p>
+            
+            <div class="difficulty-grid">
+                <div class="difficulty-card beginner">
+                    <div class="difficulty-icon">
+                        <i class="fas fa-bicycle"></i>
+                    </div>
+                    <h3>Principiante</h3>
+                    <div class="difficulty-color" style="background: #22c55e;"></div>
+                    <ul>
+                        <li>Senderos amplios y marcados</li>
+                        <li>Poca inclinación</li>
+                        <li>Sin obstáculos técnicos</li>
+                        <li>Ideal para familias</li>
+                    </ul>
+                </div>
+
+                <div class="difficulty-card intermediate">
+                    <div class="difficulty-icon">
+                        <i class="fas fa-bicycle"></i>
+                    </div>
+                    <h3>Intermedio</h3>
+                    <div class="difficulty-color" style="background: #3b82f6;"></div>
+                    <ul>
+                        <li>Terreno variado</li>
+                        <li>Subidas moderadas</li>
+                        <li>Algunos obstáculos</li>
+                        <li>Experiencia básica requerida</li>
+                    </ul>
+                </div>
+
+                <div class="difficulty-card advanced">
+                    <div class="difficulty-icon">
+                        <i class="fas fa-bicycle"></i>
+                    </div>
+                    <h3>Avanzado</h3>
+                    <div class="difficulty-color" style="background: #f59e0b;"></div>
+                    <ul>
+                        <li>Senderos técnicos</li>
+                        <li>Subidas pronunciadas</li>
+                        <li>Obstáculos frecuentes</li>
+                        <li>Física y técnica necesarias</li>
+                    </ul>
+                </div>
+
+                <div class="difficulty-card expert">
+                    <div class="difficulty-icon">
+                        <i class="fas fa-bicycle"></i>
+                    </div>
+                    <h3>Experto</h3>
+                    <div class="difficulty-color" style="background: #ef4444;"></div>
+                    <ul>
+                        <li>Terreno extremo</li>
+                        <li>Descensos vertiginosos</li>
+                        <li>Navegación compleja</li>
+                        <li>Solo expertos</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galería Section -->
+    <section id="galeria" class="gallery">
+        <div class="container">
+            <h2 class="section-title">Galería</h2>
+            <p class="section-subtitle">Momentos increíbles en los senderos de Salta</p>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item large" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-camera"></i>
+                        <span>Cerro San Bernardo</span>
+                    </div>
+                </div>
+                <div class="gallery-item" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-camera"></i>
+                        <span>Valle de Lerma</span>
+                    </div>
+                </div>
+                <div class="gallery-item" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-camera"></i>
+                        <span>San Lorenzo</span>
+                    </div>
+                </div>
+                <div class="gallery-item" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-camera"></i>
+                        <span>Campo de Marte</span>
+                    </div>
+                </div>
+                <div class="gallery-item" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-camera"></i>
+                        <span>Castañal</span>
+                    </div>
+                </div>
+                <div class="gallery-item" style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-camera"></i>
+                        <span>Chachapoyas</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tips Section -->
+    <section class="tips">
+        <div class="container">
+            <h2 class="section-title">Consejos para tu Visita</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3>Mejor Época</h3>
+                    <p>Abril a Octubre ofrece temperaturas agradables y menos lluvias. Evitá enero-febrero por las tormentas.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <h3>Hidratación</h3>
+                    <p>Salta es seca y la altura deshidrata rápido. Llevá al menos 2L de agua por cada 2 horas de ride.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                    <h3>Protección Solar</h3>
+                    <p>La radiación UV es intensa por la altura. Usá protector, gafas y gorra siempre.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Seguridad</h3>
+                    <p>Informá a alguien tu ruta, llevá kit básico de reparación y celular con carga completa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto Section -->
+    <section id="contacto" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contacto</h2>
+            <p class="section-subtitle">¿Tenés dudas o querés organizar una salida? ¡Escribinos!</p>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Ubicación</h4>
+                            <p>Salta, Argentina</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@mtbsalta.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Teléfono</h4>
+                            <p>+54 387 123 4567</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-strava"></i></a>
+                    </div>
+                </div>
+                
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="nombre" placeholder="Tu nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="Tu email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="telefono" placeholder="Tu teléfono">
+                    </div>
+                    <div class="form-group">
+                        <select id="sendero">
+                            <option value="">Seleccioná un sendero</option>
+                            <option value="Cerro San Bernardo">Cerro San Bernardo</option>
+                            <option value="Valle de Lerma">Valle de Lerma</option>
+                            <option value="Quebrada de San Lorenzo">Quebrada de San Lorenzo</option>
+                            <option value="Campo de Marte">Campo de Marte</option>
+                            <option value="Cerro Castañal">Cerro Castañal</option>
+                            <option value="Quebrada del Chachapoyas">Quebrada del Chachapoyas</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="mensaje" placeholder="Tu mensaje" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">
+                        <i class="fab fa-whatsapp"></i> Enviar por WhatsApp
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <i class="fas fa-mountain"></i>
+                    <span>MTB Salta</span>
+                </div>
+                <p>Explorá los mejores senderos de mountain bike en Salta, Argentina.</p>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 MTB Salta. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Configuration -->
+    <script src="config.js"></script>
+    <!-- Leaflet JS for interactive map -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="script.js"></script>
+</body>
+</html>

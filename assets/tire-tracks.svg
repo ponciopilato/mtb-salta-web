@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <pattern id="tireTrack" x="0" y="0" width="200" height="200" patternUnits="userSpaceOnUse">
+      <!-- Huella 1 - superior izquierda -->
+      <g opacity="0.15">
+        <ellipse cx="40" cy="40" rx="25" ry="8" fill="#8B4513" transform="rotate(-15 40 40)"/>
+        <ellipse cx="40" cy="55" rx="25" ry="8" fill="#8B4513" transform="rotate(-15 40 55)"/>
+        <!-- Marcas de neumático -->
+        <line x1="20" y1="35" x2="60" y2="45" stroke="#6B3410" stroke-width="2" opacity="0.5"/>
+        <line x1="18" y1="42" x2="58" y2="52" stroke="#6B3410" stroke-width="2" opacity="0.5"/>
+        <line x1="20" y1="50" x2="60" y2="60" stroke="#6B3410" stroke-width="2" opacity="0.5"/>
+      </g>
+      
+      <!-- Huella 2 - superior derecha -->
+      <g opacity="0.15">
+        <ellipse cx="160" cy="30" rx="25" ry="8" fill="#6B8E23" transform="rotate(10 160 30)"/>
+        <ellipse cx="160" cy="45" rx="25" ry="8" fill="#6B8E23" transform="rotate(10 160 45)"/>
+        <line x1="140" y1="25" x2="180" y2="35" stroke="#4A6B1A" stroke-width="2" opacity="0.5"/>
+        <line x1="142" y1="32" x2="182" y2="42" stroke="#4A6B1A" stroke-width="2" opacity="0.5"/>
+        <line x1="140" y1="40" x2="180" y2="50" stroke="#4A6B1A" stroke-width="2" opacity="0.5"/>
+      </g>
+      
+      <!-- Huella 3 - centro izquierda -->
+      <g opacity="0.12">
+        <ellipse cx="30" cy="120" rx="25" ry="8" fill="#A0522D" transform="rotate(-20 30 120)"/>
+        <ellipse cx="30" cy="135" rx="25" ry="8" fill="#A0522D" transform="rotate(-20 30 135)"/>
+        <line x1="10" y1="115" x2="50" y2="125" stroke="#7A3A1A" stroke-width="2" opacity="0.5"/>
+        <line x1="8" y1="122" x2="48" y2="132" stroke="#7A3A1A" stroke-width="2" opacity="0.5"/>
+        <line x1="10" y1="130" x2="50" y2="140" stroke="#7A3A1A" stroke-width="2" opacity="0.5"/>
+      </g>
+      
+      <!-- Huella 4 - centro derecha -->
+      <g opacity="0.12">
+        <ellipse cx="170" cy="110" rx="25" ry="8" fill="#8B7355" transform="rotate(15 170 110)"/>
+        <ellipse cx="170" cy="125" rx="25" ry="8" fill="#8B7355" transform="rotate(15 170 125)"/>
+        <line x1="150" y1="105" x2="190" y2="115" stroke="#6B5345" stroke-width="2" opacity="0.5"/>
+        <line x1="152" y1="112" x2="192" y2="122" stroke="#6B5345" stroke-width="2" opacity="0.5"/>
+        <line x1="150" y1="120" x2="190" y2="130" stroke="#6B5345" stroke-width="2" opacity="0.5"/>
+      </g>
+      
+      <!-- Huella 5 - inferior izquierda -->
+      <g opacity="0.1">
+        <ellipse cx="50" cy="170" rx="25" ry="8" fill="#6B8E23" transform="rotate(-10 50 170)"/>
+        <ellipse cx="50" cy="185" rx="25" ry="8" fill="#6B8E23" transform="rotate(-10 50 185)"/>
+        <line x1="30" y1="165" x2="70" y2="175" stroke="#4A6B1A" stroke-width="2" opacity="0.5"/>
+        <line x1="28" y1="172" x2="68" y2="182" stroke="#4A6B1A" stroke-width="2" opacity="0.5"/>
+        <line x1="30" y1="180" x2="70" y2="190" stroke="#4A6B1A" stroke-width="2" opacity="0.5"/>
+      </g>
+      
+      <!-- Huella 6 - inferior derecha -->
+      <g opacity="0.1">
+        <ellipse cx="150" cy="160" rx="25" ry="8" fill="#8B4513" transform="rotate(20 150 160)"/>
+        <ellipse cx="150" cy="175" rx="25" ry="8" fill="#8B4513" transform="rotate(20 150 175)"/>
+        <line x1="130" y1="155" x2="170" y2="165" stroke="#6B3410" stroke-width="2" opacity="0.5"/>
+        <line x1="132" y1="162" x2="172" y2="172" stroke="#6B3410" stroke-width="2" opacity="0.5"/>
+        <line x1="130" y1="170" x2="170" y2="180" stroke="#6B3410" stroke-width="2" opacity="0.5"/>
+      </g>
+    </pattern>
+  </defs>
+  
+  <!-- Fondo base -->
+  <rect width="200" height="200" fill="#F5DEB3"/>
+  
+  <!-- Aplicar patrón -->
+  <rect width="200" height="200" fill="url(#tireTrack)"/>
+</svg>
