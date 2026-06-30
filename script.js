@@ -51,52 +51,53 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// WhatsApp Form Handler - DESACTIVADO para usar Formspree
-// El formulario ahora envía emails directamente vía formspree.io
-/*
+// EmailJS Form Handler
 const contactForm = document.getElementById('contactForm');
 
 if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
-        // Get form values
-        const nombre = document.getElementById('nombre').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const telefono = document.getElementById('telefono').value.trim();
-        const sendero = document.getElementById('sendero').value;
-        const mensaje = document.getElementById('mensaje').value.trim();
+        const btn = this.querySelector('button[type="submit"]');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+        btn.disabled = true;
         
-        // Build WhatsApp message
-        const texto = `🚵‍♂️ *Nuevo mensaje desde MTB Salta*\\n\\n` +
-            `*Nombre:* ${nombre}\\n` +
-            `*Email:* ${email}\\n` +
-            `*Teléfono:* ${telefono || 'No especificado'}\\n` +
-            `*Sendero de interés:* ${sendero || 'No especificado'}\\n\\n` +
-            `*Mensaje:*\\n${mensaje}`;
-        
-        // Encode for URL
-        const mensajeEncoded = encodeURIComponent(texto);
-        
-        // Build WhatsApp URL
-        const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${mensajeEncoded}`;
-        
-        // Open WhatsApp in new tab
-        const newWindow = window.open(whatsappUrl, '_blank');
-        
-        if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
-            // Popup blocked - show fallback
-            alert('El navegador bloqueó la ventana emergente. Hacé clic en ACEPTAR para abrir WhatsApp manualmente.\\n\\nO copiá este link:\\n' + whatsappUrl);
-            window.location.href = whatsappUrl;
-        }
-        
-        // Optional: Reset form
-        setTimeout(() => {
-            contactForm.reset();
-        }, 500);
+        // Enviar email con EmailJS
+        emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+            .then(function() {
+                // Éxito
+                btn.innerHTML = '<i class="fas fa-check"></i> ¡Enviado!';
+                btn.style.background = 'linear-gradient(135deg, #22c55e 0%, #16a34a 100%)';
+                
+                alert('¡Mensaje enviado con éxito! Te responderemos a la brevedad.');
+                
+                contactForm.reset();
+                
+                // Restaurar botón después de 3 segundos
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.style.background = '';
+                    btn.disabled = false;
+                }, 3000);
+            }, function(error) {
+                // Error
+                btn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Error';
+                btn.style.background = 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)';
+                
+                alert('Hubo un error al enviar el mensaje. Por favor intentá de nuevo o escribinos por WhatsApp.');
+                
+                console.error('EmailJS ERROR:', error);
+                
+                // Restaurar botón después de 3 segundos
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.style.background = '';
+                    btn.disabled = false;
+                }, 3000);
+            });
     });
 }
-*/
 
 // Initialize Interactive Map with Leaflet
 function initMap() {
