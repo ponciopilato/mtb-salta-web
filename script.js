@@ -51,59 +51,14 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// EmailJS Form Handler
+// Formspree Form Handler - Simple email forwarding
 const contactForm = document.getElementById('contactForm');
 
 if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        console.log('Form submitted, preparing to send...');
-        
-        const btn = this.querySelector('button[type="submit"]');
-        const originalText = btn.innerHTML;
-        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
-        btn.disabled = true;
-        
-        // Enviar email con EmailJS
-        emailjs.sendForm('service_fpblz4d', 'template_93n639y', this)
-            .then((response) => {
-                console.log('Email enviado exitosamente!', response.status, response.text);
-                
-                // Éxito
-                btn.innerHTML = '<i class="fas fa-check"></i> ¡Enviado!';
-                btn.style.background = 'linear-gradient(135deg, #22c55e 0%, #16a34a 100%)';
-                
-                alert('¡Mensaje enviado con éxito! Te responderemos a la brevedad.');
-                
-                contactForm.reset();
-                
-                // Restaurar botón después de 3 segundos
-                setTimeout(() => {
-                    btn.innerHTML = originalText;
-                    btn.style.background = '';
-                    btn.disabled = false;
-                }, 3000);
-            })
-            .catch((error) => {
-                console.error('EmailJS ERROR:', error);
-                
-                // Error detallado
-                let errorMsg = 'Hubo un error al enviar el mensaje. Error: ' + (error.text || error.message || 'Desconocido');
-                errorMsg += '\n\nPor favor contactanos directamente a: ponciopilato19800@gmail.com';
-                
-                btn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Error';
-                btn.style.background = 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)';
-                
-                alert(errorMsg);
-                
-                // Restaurar botón después de 3 segundos
-                setTimeout(() => {
-                    btn.innerHTML = originalText;
-                    btn.style.background = '';
-                    btn.disabled = false;
-                }, 3000);
-            });
+        // Formspree handles the submission natively
+        // No custom JS needed - the form action handles everything
+        console.log('Form submitted to Formspree');
     });
 }
 

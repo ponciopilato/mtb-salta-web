@@ -441,7 +441,7 @@
                     </div>
                 </div>
                 
-                <form class="contact-form" id="contactForm">
+                <form class="contact-form" id="contactForm" action="https://formspree.io/f/mqazanlg" method="POST">
                     <div class="form-group">
                         <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
                     </div>
@@ -491,21 +491,6 @@
 
     <!-- Configuration -->
     <script src="config.js"></script>
-    <!-- EmailJS SDK -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script type="text/javascript">
-        (function() {
-            // Inicializar EmailJS con tu Public Key
-            emailjs.init({
-                publicKey: "hSLwggXsslkX1Y6L8",
-                blockHeadless: false,
-                limitRate: {
-                    id: "app",
-                    throttle: 10000, // 10s rate limit
-                },
-            });
-        })();
-    </script>
     <!-- Leaflet JS for interactive map -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script src="script.js"></script>
