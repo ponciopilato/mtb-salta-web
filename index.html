@@ -496,7 +496,14 @@
     <script type="text/javascript">
         (function() {
             // Inicializar EmailJS con tu Public Key
-            emailjs.init("UK4X2hlK_pHrVUQ7k");
+            emailjs.init({
+                publicKey: "UK4X2hlK_pHrVUQ7k",
+                blockHeadless: false,
+                limitRate: {
+                    id: "app",
+                    throttle: 10000, // 10s rate limit
+                },
+            });
         })();
     </script>
     <!-- Leaflet JS for interactive map -->

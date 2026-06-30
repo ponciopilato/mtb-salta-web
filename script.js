@@ -58,6 +58,8 @@ if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
+        console.log('Form submitted, preparing to send...');
+        
         const btn = this.querySelector('button[type="submit"]');
         const originalText = btn.innerHTML;
         btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
@@ -65,7 +67,9 @@ if (contactForm) {
         
         // Enviar email con EmailJS
         emailjs.sendForm('service_fpblz4d', 'template_rxwma9n', this)
-            .then(function() {
+            .then((response) => {
+                console.log('Email enviado exitosamente!', response.status, response.text);
+                
                 // Éxito
                 btn.innerHTML = '<i class="fas fa-check"></i> ¡Enviado!';
                 btn.style.background = 'linear-gradient(135deg, #22c55e 0%, #16a34a 100%)';
@@ -80,14 +84,18 @@ if (contactForm) {
                     btn.style.background = '';
                     btn.disabled = false;
                 }, 3000);
-            }, function(error) {
-                // Error
+            })
+            .catch((error) => {
+                console.error('EmailJS ERROR:', error);
+                
+                // Error detallado
+                let errorMsg = 'Hubo un error al enviar el mensaje. Error: ' + (error.text || error.message || 'Desconocido');
+                errorMsg += '\n\nPor favor contactanos directamente a: ponciopilato19800@gmail.com';
+                
                 btn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Error';
                 btn.style.background = 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)';
                 
-                alert('Hubo un error al enviar el mensaje. Por favor intentá de nuevo o escribinos por WhatsApp.');
-                
-                console.error('EmailJS ERROR:', error);
+                alert(errorMsg);
                 
                 // Restaurar botón después de 3 segundos
                 setTimeout(() => {
