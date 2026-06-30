@@ -189,7 +189,7 @@ h1, h2, h3, h4 {
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
     animation: zoomIn 1s ease;
     object-fit: cover;
-    object-position: center;
+    object-position: 35% center;
 }
 
 .hero-logo-container {
