@@ -85,64 +85,34 @@ function initMap() {
     // Trail data with actual coordinates (approximate)
     const trails = [
         {
-            name: 'Cerro San Bernardo',
-            coords: [-24.7689, -65.3928],
-            distance: 12,
-            elevation: 450,
-            duration: '2-3 hs',
-            difficulty: 'intermediate',
-            description: 'El clásico de Salta. Subida desafiante con vistas panorámicas increíbles.',
-            color: '#3b82f6'
-        },
-        {
-            name: 'Valle de Lerma',
-            coords: [-24.8333, -65.5000],
-            distance: 25,
-            elevation: 600,
-            duration: '4-5 hs',
-            difficulty: 'advanced',
-            description: 'Recorrido extenso por el valle con cambios de ritmo constantes.',
-            color: '#f59e0b'
-        },
-        {
-            name: 'Quebrada de San Lorenzo',
-            coords: [-24.7167, -65.4500],
-            distance: 18,
-            elevation: 800,
+            name: 'Circuito 1: Elefante - Los Hurones',
+            coords: [-24.6800, -65.4100],  // Villa San Lorenzo area
+            distance: 12.58,
+            elevation: 675,
             duration: '3-4 hs',
-            difficulty: 'advanced',
-            description: 'Sendero en la selva de yunga con vegetación densa y humedad.',
-            color: '#f59e0b'
-        },
-        {
-            name: 'Campo de Marte',
-            coords: [-24.7900, -65.4100],
-            distance: 8,
-            elevation: 200,
-            duration: '1-2 hs',
-            difficulty: 'beginner',
-            description: 'Perfecto para comenzar. Sendero suave ideal para familias.',
-            color: '#22c55e'
-        },
-        {
-            name: 'Cerro Castañal',
-            coords: [-24.7700, -65.4200],
-            distance: 15,
-            elevation: 550,
-            duration: '2-3 hs',
             difficulty: 'intermediate',
-            description: 'Sendero con mix de subida constante y secciones planas.',
-            color: '#3b82f6'
+            description: 'Ascenso a Cerro Elefante (1.926m) y descenso por Sendero de Los Hurones. Selva de yunga, fauna autóctona, vistas del Valle de Lerma.',
+            color: '#8B4513'
         },
         {
-            name: 'Quebrada del Chachapoyas',
-            coords: [-24.6500, -65.3800],
-            distance: 30,
-            elevation: 900,
-            duration: '5-6 hs',
+            name: 'Circuito 2: Cerro Negro - Corralito',
+            coords: [-24.6000, -65.5500],  // Cerro Negro / Puna area
+            distance: 0,
+            elevation: 3000,
+            duration: 'Varias hrs',
             difficulty: 'expert',
-            description: 'La ruta más exigente. Territorio remoto con navegación compleja.',
-            color: '#ef4444'
+            description: 'Descenso épico desde ~4.000m de puna hasta la selva de Corralito. Cruce de ecosistemas extremos sin transición.',
+            color: '#2C1810'
+        },
+        {
+            name: 'Circuito 3: Cerro Redondo',
+            coords: [-24.5500, -65.6500],  // Incamayo / Precordillera
+            distance: 22.5,
+            elevation: 1256,
+            duration: '10 hs',
+            difficulty: 'advanced',
+            description: 'Acceso a la precordillera profunda. Ascenso a 3.463m con vistas 360° y descenso ancestral por senderos marcados por generaciones.',
+            color: '#D2691E'
         }
     ];
     
